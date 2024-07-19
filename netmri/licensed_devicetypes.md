@@ -94,7 +94,12 @@ Traffic Aggregation Node has been observed as Unlicensed at a customer deploymen
 Source:
 ```
 Jayde Hanley [5/22 12:14 PM]
-NetMRI considers the following Devices as Network Devices:  'Router','Switch','Switch-Router','Firewall','VPN','Wireless AP','VoIP Gateway','Load Balancer','Wireless Controller','WOC','Call Server','Video QAM','Video Encoder','Video Decoder','Video Receiver','Video Groomer','Video Monitor','CMTS','NIOS','vNIOS','Console Server','Proxy','Security Manager','IPS','SDN Element','SDN Controller','Media Gateway','Web Gateway','Power Controller','Time Server','Storage Appliance','SD-WAN','Cloud Switch','NTO','Traffic Aggregation Node','Visibility Appliance','Security-Appliance','PDU','Server','Cloud AP','UPS','Service Delivery Platform'
+NetMRI considers the following Devices as Network Devices:  'Router','Switch','Switch-Router','Firewall','VPN',
+'Wireless AP','VoIP Gateway','Load Balancer','Wireless Controller','WOC','Call Server','Video QAM','Video Encoder',
+'Video Decoder','Video Receiver','Video Groomer','Video Monitor','CMTS','NIOS','vNIOS','Console Server','Proxy',
+'Security Manager','IPS','SDN Element','SDN Controller','Media Gateway','Web Gateway','Power Controller',
+'Time Server','Storage Appliance','SD-WAN','Cloud Switch','NTO','Traffic Aggregation Node','Visibility Appliance',
+'Security-Appliance','PDU','Server','Cloud AP','UPS','Service Delivery Platform'
 
 Source: Infoblox case # 00317984
  ```
