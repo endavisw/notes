@@ -1,0 +1,39 @@
+# Known DSB XML Tags
+
+Documented = In "Infoblox Network InfrastructureDevice Support Guide" (Device_Support_Guide.pdf)
+
+| Tag                | Documented |
+| ------------------ | ---------- |
+| cli                | Yes        |
+| CLIDevice          | No         |
+| config             | Yes        |
+| configSaveViaSNMP  | No         |
+| cpu                | Yes        |
+| dependency         | No         |
+| devicemap          | Yes        |
+| devicesupport      | Yes        |
+| devicetype         | Yes        |
+| devicetypemodels   | Yes        |
+| dsb                | Yes        |
+| environmental      | Yes        |
+| firewall           | Yes        |
+| forwarding         | Yes        |
+| inventory          | Yes        |
+| memory             | Yes        |
+| mibenterprise      | Yes        |
+| miboverride        | Yes        |
+| mibvendormap       | Yes        |
+| modelmap           | Yes        |
+| poe                | No         |
+| processconfig      | Yes        |
+| propertymap        | Yes        |
+| setIntfAdminStatus | Yes        |
+| setIntfDescr       | Yes        |
+| setIntfVlan        | Yes        |
+| switchport         | Yes        |
+| syslog             | Yes        |
+| unittests          | Yes        |
+| vendorscalar       | Yes        |
+| versionmap         | Yes        |
+| vlan               | Yes        |
+| vrf                | No         |
