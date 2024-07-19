@@ -247,15 +247,20 @@ DeviceID,DeviceIPDotted,VirtualNetworkID,VirtualNetworkName,VirtualNetworkMember
 "Subnets" are just a subset of "Routes". Per Rajiv Nair of Infoblox:
 
 ```
-Admin/Oper state is considered when a learned route is converted as a discovered Subnet in NetMRI. The following is a copy/paste from a knowledge base article that lists some criteria for a route to be considered as subnet for IPAM Sync push
+Admin/Oper state is considered when a learned route is converted as a discovered Subnet in NetMRI. The following is a
+copy/paste from a knowledge base article that lists some criteria for a route to be considered as subnet for IPAM Sync
+push
 
-1. From the Network Explorer > Summaries > Routes table: A managed device must have a route for the subnet in question, for the subnet to be created.
+1. From the Network Explorer > Summaries > Routes table: A managed device must have a route for the subnet in question,
+   for the subnet to be created.
 2. The Route must be protocol "local" and type "direct."
 3. From the Network Explorer > Inventory > Interface > Interface Config table:
    A managed device must have AT LEAST one interface in this subnet.
 4. The interface must be "admin up" AND "oper up"
 
-In a few corner cases, A network device may have a local but indirect route. For example, the route was previously routed on an interface which is now reconfigured as a switchport, such routes are also not qualified as Subnets. Static routes are also excluded from this consideration."
+In a few corner cases, A network device may have a local but indirect route. For example, the route was previously
+routed on an interface which is now reconfigured as a switchport, such routes are also not qualified as Subnets.
+Static routes are also excluded from this consideration.
 ```
 
 A quick & dirty way would be to look for routes with `RouteProto` value of 
