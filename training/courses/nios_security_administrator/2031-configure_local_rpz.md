@@ -92,3 +92,77 @@ Policies applied sequentially
 ### Why Deploy RPZ Close to the Client?
 * When RPZ is deployed closet to the clients, you can see which host triggered a violation
 * If RPZ is enabled farther away from the client, through multiple layers of recursion, you only see the information of the next later of the DNS servers, not the original client
+
+
+## 2031-02: Configuring RPZ Rules
+
+### RPZ Policy Definitions
+* RPZs are policies
+* Policies are made up of rules
+* Rules
+    * Policy Triggers
+        * Query source and destination can be examined
+    * Policy Action
+        * Evaluated before resolver replies to client
+
+### RPZ Rule Actions
+* Passthru - allow query resolved correctly, log if required
+* Block (No Such Domain) - Return NXDOMAIN: domain does not exist
+* Block (No Data) - Return an empty response: there is no record
+* Substitute (Domain Name) - Replaces response with specified data
+* Substitute (Record) - Replaces response with specified data
+
+### Passthru Rules
+* DNS Response forwarded to client without modification
+* Used to create allowlist
+    * Recommended to sort at top of policy sequence
+    * Containing all corporate domains/networks
+    * Alongside popular domains allowed to avoid false-positives
+Can be used in troubleshooting since they also log and tag DNS queries
+
+Passthru Domain Name Rule
+* Triggered by query
+Passthru IP Address Rule
+* Triggered by response
+Passthru Client IP Address Rule
+* Triggered by client IP making query
+
+Data Management > DNS > Response Policy Zone > (policy) > + icon > Passthru Rule
+
+Adding Domain Name
+* Name (incl. Zone), DNS View, Policy, Comment, Disable
+
+Adding Domain IP Address or Client IP Address
+* IP Address or Network (incl. Zone), DNS view, Policy, Comment, Disable 
+    
+
+### Blocking Rules
+Used to create a deny- or block-list for domains, networks, or IP addresses
+* Block (No Such Domain Rule) - Sends NXDOMAIN response
+* Block (No Data) - Sends NODATA response
+
+'NODATA' is not a flag in DNS. Client will receive a response with NOERROR flag, but with no records in it
+
+Three types for each rule - by Domain Name, (Domain) IP Address, or Client IP Address
+
+Data Management > DNS > Response Policy Zone > (policy) > + icon > Block (*) Rule
+
+Adding Domain Name
+* Name (incl. Zone), DNS View, Policy, Comment, Disable
+
+Adding Domain IP Address or Client IP Address
+* IP Address or Network (incl. Zone), DNS view, Policy, Comment, Disable 
+
+Block rule for a domain does not include subdomains. '*.' can be used to match subdomains
+
+
+### Substitute Rules
+* Substitute Domain Name (Domain Name) Rule
+* Substitute Domain Name (IP Address) Rule
+* Substitute Domain Name (Client IP Address) Rule
+    
+Adding Domain Name
+* Name (incl. Zone), DNS View, Policy, Substituted Name, Comment, Disable
+
+Adding Domain IP Address or Client IP Address
+* IP Address or Network (incl. Zone), DNS view, Policy, Substituted Name, Comment, Disable 
