@@ -415,11 +415,11 @@ system.
 
 **DeviceAssurance** could be useful as a tie-breaker if StatusDetail is the same.
 
-This is _only_ how confident NetMRI in its determination of a Device's Device
-Type. Being found by CDP/LLDP, a hop in a traceroute, hop in a route table, or
-configured Device Hint could influence this score, but without SNMP will only
-go so high. A sysObjectID or sysDescr match (\<devicetypemodels> and 
-\<devicemap> DSB tags) will result in a score 99, the highest possible.
+This is _only_ how confident NetMRI in its determination of DeviceType. Being
+found by CDP/LLDP, a hop in a traceroute, hop in a route table, or configured
+Device Hint could influence this score, but without SNMP will only go so high.
+A sysObjectID or sysDescr match (\<devicetypemodels> and  \<devicemap> DSB tags)
+will result in a score 99, the highest possible.
 
 Most fully-discovered Licensed Devices should have DeviceAssurance of 99, but
 it's possible for one system to have a Device with 99 Assurance score, but
