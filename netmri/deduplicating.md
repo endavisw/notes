@@ -86,7 +86,7 @@ But wait, what about... ?
     NetMRI systems and it may be better to generate an identifier on one's own
     using DeviceDNSName & DeviceSysName
 * DeviceAssurance
-    - Only relates how sure NetMRI is of the Device Type for the
+    - Only relates how sure NetMRI is of the DeviceType for the
     Device. Multiple NetMRI systems of the same version, equipped with the same
     DSBs (where applicable), should come up with the same Type & Assurance values
     for non-Unmanaged devices that both successfully query with SNMP.
@@ -162,7 +162,7 @@ well, kinda bad.
 * DeviceIPDotted
     - NetMRI's best guess at what the management IP address might be. Depends
     on Discovery config, the IP that NetMRI determined to exist, interfaces are
-    on the Device and how they're configured (if it's a Device Type for which
+    on the Device and how they're configured (if it's a DeviceType for which
     NetMRI will collect Interfaces). Not guaranteed to be unique in an
     environment with VRFs and potentially overlapping IP space. Hopefully it
     won't stumble upon VIPs this way.
@@ -385,7 +385,7 @@ There are a number of attributes to compare between the two to determine the
 **StatusDetail** has 4 (really 3) possible values and is the easiest comparison.
 
 * Licensed
-    - Device has been determined to of a DeviceType that consumes a license.
+    - Device has been determined to be of a DeviceType that consumes a license.
     It's likely infrastructure and NetMRI will attempt to collect _lots_ of
     information from it. Is being collected by SNMP or SDN, and may have CLI
     collection as well.
@@ -393,7 +393,7 @@ There are a number of attributes to compare between the two to determine the
     - Same as Licensed, but DeviceType is Switch, Switch-Router, or Wireless
     Controller.
 * Unlicensed
-    - Could mean many things: Device could be of a Device Type that does not
+    - Could mean many things: Device could be of a DeviceType that does not
     consume a license and only basic information is collected; could potentially
     be infrastructure but NetMRI hasn't finished discovering the Device yet;
     could be any Device that does not respond to SNMP but is known to exist and
