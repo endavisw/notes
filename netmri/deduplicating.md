@@ -203,6 +203,7 @@ That would yield "LINUX" for name, so add that to the list of vendor-default
 
 | Known Duplicate Names               |
 | ----------------------------------- |
+| CMM                                 |
 | DOCKER-TEST                         |
 | IBM REMOTE SUPERVISOR ADAPTER II--1 |
 | IDRAC                               |
