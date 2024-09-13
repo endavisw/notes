@@ -218,6 +218,7 @@ That would yield "LINUX" for name, so add that to the list of vendor-default
 | PIXEL-7-PRO                         |
 | SAMSUNG                             |
 | SC-1                                |
+| SC-2                                |
 | SWD77                               |
 | SWITCH1                             |
 | SWITCH2                             |
