@@ -224,6 +224,7 @@ That would yield "LINUX" for name, so add that to the list of vendor-default
 | SWITCH1                             |
 | SWITCH2                             |
 | TP5000                              |
+| TX-3000                             |
 | YOUR SYSTEM NAME HERE               |
 
 _("Your System Name Here"? Those are Netscout Infinistreams)_
