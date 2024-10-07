@@ -1,7 +1,7 @@
 # Deduplication Across Multiple NetMRI Systems
 
 This document shares thoughts on deduplicating data across multiple NetMRI
-Operations Centers (OCs) or stand-alone NetMRI instance. This is *not** about
+Operations Centers (OCs) or stand-alone NetMRI instance. This is *not* about
 how an OC dedupes between Collectors.
 
 The term NetMRI "system" will be used to refer to an invidiual OC or stand-alone
@@ -383,7 +383,7 @@ There are a number of attributes to compare between the two to determine the
 
 * StatusDetail
   * DeviceAssurance
-    * SNMPCollection* or SDNCollection*
+    * SNMPCollection or SDNCollection
       * DeviceTimestamp/LastSeen
 
 **StatusDetail** has 4 (really 3) possible values and is the easiest comparison.
