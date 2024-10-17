@@ -214,6 +214,7 @@ That would yield "LINUX" for name, so add that to the list of vendor-default
 | MALBAN10                            |
 | MNODE180                            |
 | NETSCALER                           |
+| NOS                                 |
 | OA1                                 |
 | PIXEL-6                             |
 | PIXEL-7-PRO                         |
@@ -225,6 +226,7 @@ That would yield "LINUX" for name, so add that to the list of vendor-default
 | SWITCH2                             |
 | TP5000                              |
 | TX-3000                             |
+| UNINITIALIZED NAME                  |
 | YOUR SYSTEM NAME HERE               |
 
 _("Your System Name Here"? Those are Netscout Infinistreams)_
