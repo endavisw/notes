@@ -1,6 +1,6 @@
 # Known DSB XML Tags
 
-Documented = In "Infoblox Network InfrastructureDevice Support Guide" (Device_Support_Guide.pdf)
+Documented = In "Infoblox Network Infrastructure Device Support Guide" (Device_Support_Guide.pdf)
 
 | Tag                | Documented |
 | ------------------ | ---------- |
