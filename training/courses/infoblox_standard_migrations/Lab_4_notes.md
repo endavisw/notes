@@ -1,16 +1,16 @@
 # DNS
 ## Zone count
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ ls -1 dc1.blox.corp_ib_export/*db | wc -l
+$ ls -1 dc1.blox.corp_ib_export/*db | wc -l
 54
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ ls -1 dc2.blox.corp_ib_export/*db | wc -l
+$ ls -1 dc2.blox.corp_ib_export/*db | wc -l
 54
 ```
 
 ## Name Servers
 Number of servers
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep -i -e ' NS' -e 'NS ' */*db | fgrep -v ';' | cut -d\: -f2- | sort -u
+$ fgrep -i -e ' NS' -e 'NS ' */*db | fgrep -v ';' | cut -d\: -f2- | sort -u
 ha                      NS	gtm1.ha.blox.corp.
 ha                      NS	gtm2.ha.blox.corp.
 @                       NS	dc1.blox.corp.
@@ -21,16 +21,20 @@ ha                      NS	gtm2.ha.blox.corp.
 
 ha.blox.corp is delegated, probably OK
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep -i -e gtm1.ha.blox.corp -e gtm2.ha.blox.corp */*db
+$ fgrep -i -e gtm1.ha -e gtm2.ha */*db
 dc1.blox.corp_ib_export/blox.corp.db:ha                      NS	gtm2.ha.blox.corp.
+dc1.blox.corp_ib_export/blox.corp.db:gtm2.ha                 A	10.61.200.253
 dc1.blox.corp_ib_export/blox.corp.db:ha                      NS	gtm1.ha.blox.corp.
+dc1.blox.corp_ib_export/blox.corp.db:gtm1.ha                 A	10.61.200.252
 dc2.blox.corp_ib_export/blox.corp.db:ha                      NS	gtm2.ha.blox.corp.
+dc2.blox.corp_ib_export/blox.corp.db:gtm2.ha                 A	10.61.200.253
 dc2.blox.corp_ib_export/blox.corp.db:ha                      NS	gtm1.ha.blox.corp.
+dc2.blox.corp_ib_export/blox.corp.db:gtm1.ha                 A	10.61.200.252
 ```
 
 Customer states SRS002 & SRS008 no longer around, from old project.
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep -i -e srs002.blox.corp -e srs008.blox.corp */*db
+$ fgrep -i -e srs002.blox.corp -e srs008.blox.corp */*db
 dc1.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	srs002.blox.corp.
 dc1.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	srs008.blox.corp.
 dc1.blox.corp_ib_export/253.10.in-addr.arpa.db:@                       NS	srs008.blox.corp.
@@ -38,7 +42,7 @@ dc2.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	srs002
 dc2.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	srs008.blox.corp.
 dc2.blox.corp_ib_export/253.10.in-addr.arpa.db:@                       NS	srs008.blox.corp.
 
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ grep NS dc*/150.10.in-addr.arpa.db
+$ grep NS dc*/150.10.in-addr.arpa.db
 dc1.blox.corp_ib_export/150.10.in-addr.arpa.db:;  Zone NS records
 dc1.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	dc1.blox.corp.
 dc1.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	dc2.blox.corp.
@@ -49,7 +53,7 @@ dc2.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	dc1.bl
 dc2.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	dc2.blox.corp.
 dc2.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	srs002.blox.corp.
 dc2.blox.corp_ib_export/150.10.in-addr.arpa.db:@                       NS	srs008.blox.corp.
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ grep NS dc*/253.10.in-addr.arpa.db
+$ grep NS dc*/253.10.in-addr.arpa.db
 dc1.blox.corp_ib_export/253.10.in-addr.arpa.db:;  Zone NS records
 dc1.blox.corp_ib_export/253.10.in-addr.arpa.db:@                       NS	dc1.blox.corp.
 dc1.blox.corp_ib_export/253.10.in-addr.arpa.db:@                       NS	dc2.blox.corp.
@@ -63,7 +67,7 @@ dc2.blox.corp_ib_export/253.10.in-addr.arpa.db:@                       NS	srs008
 ## Invalid Records
 ### WINS
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep -A2 WINS dc*/*db
+$ fgrep -A2 WINS dc*/*db
 dc1.blox.corp_ib_export/blox.corp.db:;  WINS lookup record
 dc1.blox.corp_ib_export/blox.corp.db-;
 dc1.blox.corp_ib_export/blox.corp.db-
@@ -81,7 +85,7 @@ dc2.blox.corp_ib_export/blox.corp.db-                        		10.61.200.202 )
 
 WINS resolution goes to the ADCs
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep -e 10.61.200.202 -e 10.61.200.203 dc*/blox.corp.db | fgrep A | fgrep -v -e '@' -e Zones -e '._'
+$ fgrep -e 10.61.200.202 -e 10.61.200.203 dc*/blox.corp.db | fgrep A | fgrep -v -e '@' -e Zones -e '._'
 dc1.blox.corp_ib_export/blox.corp.db:dc1                     1200	A	10.61.200.202
 dc1.blox.corp_ib_export/blox.corp.db:dc2                     A	10.61.200.203
 dc1.blox.corp_ib_export/blox.corp.db:                        600	A	10.61.200.202
@@ -95,7 +99,7 @@ dc2.blox.corp_ib_export/blox.corp.db:                        600	A	10.61.200.202
 ### Invalid Characters
 Many non-AD records have underscores
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '_' dc*/*db | fgrep -v -e ':_' -e '._' | cut -d\/ -f2- | sort -u
+$ fgrep '_' dc*/*db | fgrep -v -e ':_' -e '._' | cut -d\/ -f2- | sort -u
 250.10.in-addr.arpa.db:1.251                   PTR	halab_vip.mgt.stj.blox.corp.
 250.10.in-addr.arpa.db:193.1                   PTR	fws_cluster.blox.corp.
 250.10.in-addr.arpa.db:2.251                   PTR	halab_edge1.mgt.stj.blox.corp.
@@ -157,17 +161,17 @@ blox.corp.db:rmsprd_standby          CNAME	srs790.blox.corp.
 blox.corp.db:vcsprd_primary          CNAME	srs653.blox.corp.
 blox.corp.db:vcsprd_standby          CNAME	srs601.blox.corp.
 
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '_' dc*/*db | fgrep -v -e ':_' -e '._' | cut -d\/ -f2- | sort -u | wc -l
+$ fgrep '_' dc*/*db | fgrep -v -e ':_' -e '._' | cut -d\/ -f2- | sort -u | wc -l
 60
 ```
 
 Some have slashes
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '\' dc*/*db
+$ fgrep '\' dc*/*db
 dc1.blox.corp_ib_export/wl.blox.corp.db:dans\302\240bb          900	A	10.150.240.30
 dc2.blox.corp_ib_export/wl.blox.corp.db:dans\302\240bb          900	A	10.150.240.30
 
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '/' dc*/*db
+$ fgrep '/' dc*/*db
 dc1.blox.corp_ib_export/192.10.in-addr.arpa.db:1.10                    PTR	den-7500-eth0/0.12-int.mgt.denver.blox.corp.
 dc1.blox.corp_ib_export/194.10.in-addr.arpa.db:1.10                    PTR	dal-7500-eth0/0.18-int.mgt.dallas.blox.corp.
 dc1.blox.corp_ib_export/195.10.in-addr.arpa.db:1.10                    PTR	mia-7500-eth0/0.12-int.mgt.miami.blox.corp.
@@ -184,25 +188,37 @@ dc2.blox.corp_ib_export/mgt.miami.blox.corp.db:mia-7500-eth0/0.12-int  A	10.195.
 
 No % characters
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '\%' dc*/*db | wc -l
+$ fgrep '\%' dc*/*db | wc -l
 0
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '%' dc*/*db | wc -l
+$ fgrep '%' dc*/*db | wc -l
 0
 ```
 
 No $ characters
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '\$' dc*/*db | wc -l
+$ fgrep '\$' dc*/*db | wc -l
 0
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets $ fgrep '$' dc*/*db | wc -l
+$ fgrep '$' dc*/*db | wc -l
 0
 ```
 
 # DHCP
+
+```
+$ cd dhcp_export
+```
+
+## Convert netsh from UTF16 to UTF8
+Now greppable
+```
+$ iconv -f utf16 -t utf8 netsh-10.61.200.202-dc1.blox.corp.txt > netsh-utf8-10.61.200.202-dc1.blox.corp.txt
+$ iconv -f utf16 -t utf8 netsh-10.61.200.203-dc2.blox.corp.txt > netsh-utf8-10.61.200.203-dc2.blox.corp.txt
+```
+
 ## Scopes
 Unique DHCP scopes
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets/dhcp_export $ fgrep 'add scope' netsh-utf8-* | awk '{print $6" "$7;}' | sort -u 
+$ fgrep 'add scope' netsh-utf8-* | awk '{print $6" "$7;}' | sort -u 
 10.150.202.0 255.255.255.0
 10.150.204.0 255.255.252.0
 10.150.208.0 255.255.252.0
@@ -260,16 +276,16 @@ training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_da
 
 Unique scope count
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets/dhcp_export $ fgrep 'add scope' netsh-utf8-* | awk '{print $6" "$7;}' | sort -u | wc -l
+$ fgrep 'add scope' netsh-utf8-* | awk '{print $6" "$7;}' | sort -u | wc -l
 53
 ```
 
 Same number of scopes in dhcpconfig dumps
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets/dhcp_export $ fgrep -A1 '<Scope>' dhcpconfig* | fgrep ScopeId | cut -d\< -f2 | cut -d\> -f2 | sort -u | wc -l
+$ fgrep -A1 '<Scope>' dhcpconfig* | fgrep ScopeId | cut -d\< -f2 | cut -d\> -f2 | sort -u | wc -l
 53
 
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets/dhcp_export $ fgrep -A1 '<Scope>' dhcpconfig* | fgrep ScopeId | cut -d\< -f2 | cut -d\> -f2 | sort -u
+$ fgrep -A1 '<Scope>' dhcpconfig* | fgrep ScopeId | cut -d\< -f2 | cut -d\> -f2 | sort -u
 10.150.202.0
 10.150.204.0
 10.150.208.0
@@ -326,9 +342,17 @@ training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_da
 ```
 
 ## Other DNS Servers
+Find all domain-name-servers
+```
+$ fgrep 'optionvalue 6 ' netsh-utf8* | cut -d\: -f2 | fgrep Scope | cut -d\  -f6- | sort -u
+set optionvalue 6 IPADDRESS "10.61.200.202" "10.61.200.203" 
+set optionvalue 6 IPADDRESS "10.61.200.203" "10.61.200.203" 
+set optionvalue 6 IPADDRESS "8.8.8.8" "8.8.4.4"
+```
+
 Guest wireless uses Google DNS servers
 ```
-training@jump-desktop:~/Desktop/ps-nios/Lab Data Sets/Lab-4-bloxcorp_dns_dhcp_datasets/dhcp_export $ for network in `fgrep 8.8. netsh-utf8-10.61.200.20* | cut -d\: -f2- | awk '{print $5;}' | sort -u`; do fgrep ${network} netsh-utf8* | fgrep 'add scope'; done
+$ for network in `fgrep 8.8. netsh-utf8-10.61.200.20* | cut -d\: -f2- | awk '{print $5;}' | sort -u`; do fgrep ${network} netsh-utf8* | fgrep 'add scope'; done
 netsh-utf8-10.61.200.202-dc1.blox.corp.txt:Dhcp Server \\10.61.200.202 add scope 10.150.208.0 255.255.252.0 "Chicago Guest" "vl108"
 netsh-utf8-10.61.200.203-dc2.blox.corp.txt:Dhcp Server \\10.61.200.203 add scope 10.150.208.0 255.255.252.0 "Chicago Guest" "vl108"
 netsh-utf8-10.61.200.202-dc1.blox.corp.txt:Dhcp Server \\10.61.200.202 add scope 10.150.224.0 255.255.240.0 "guestwifi" ""

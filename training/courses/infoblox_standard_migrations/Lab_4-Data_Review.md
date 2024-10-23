@@ -189,6 +189,7 @@ Fixed IP 10.150.207.243 has invalid MAC: 00-00-00-00-20-72-43
 
 `slp-directory-agent` Option, 15 instances set to "false", should be bool & array of IP
 - _Customer states this can be ignored_
+- MS data files have more than first byte for boolean, DIW does not parse correctly?
 
 Google DNS server 8.8.8.8 & 8.8.4.4 configured on
 - 10.150.208.0 - Chicago Guest
@@ -200,12 +201,14 @@ Google DNS server 8.8.8.8 & 8.8.4.4 configured on
 - _Customer states this is fine_
 
 ## Data Corrections
+### DNS
 `blox.corp.db`
 - Commented out lines for WINS record based on customer input
 
 `wl.blox.corp`
-- `dans\302\240bb` customer check
+- `dans\302\240bb`
 - _Customer states this can removed but wants a list_
+- Delete from db files, DIW seems to still see record despite comment
 
 / characters in 6 records:
 - `1.10.192.10.in-addr.arpa IN PTR den-7500-eth0/0.12-int.mgt.denver.blox.corp`
@@ -216,3 +219,24 @@ Google DNS server 8.8.8.8 & 8.8.4.4 configured on
 - `dal-7500-eth0/0.18-int.mgt.dallas.blox.corp IN A 10.194.10.1`
 - `mia-7500-eth0/0.12-int.mgmt.miami.blox.corp IN A 10.195.10.1`
 - _Customer states these can removed but wants a list_
+- Delete from db files, DIW seems to still see record despite comment
+
+Do Not Import:
+- `allow-transfer` from Any
+- `allow-update` from GSS-TSIG or NStab
+
+### DHCP
+Subnet 10.201.194.0/24 - Change router from 10.201.193.1 to 102.201.194.1
+
+Fixed IP 10.150.207.243 - Change MAC to 00-00-00-20-72-43
+
+Import to Grid:
+- Only 1 lease time used
+- 1 instance of blox.corp domain-name
+
+Do Not Import:
+- `slp-directory-agent` Options
+- `fqdn` Options
+  - MS uses these for DDNS purposes but not in the standard/ISC way
+  - https://www.carlwebster.com/the-mysterious-microsoft-dhcp-option-id-81/
+- `domain-name-servers` Options with ADCs
