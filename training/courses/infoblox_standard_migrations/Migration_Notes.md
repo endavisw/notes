@@ -16,8 +16,7 @@ DIW DNS Import
   - Otherwise no A records for dc1/dc2
 - Do not import:
   - allow-transfer any
-  - allow-update TSIG
-  - allow-update NStab
+  - allow-update *
 - Set member to Internal_NSG master
 Look for other allow-update zones, see if reasonable
 
@@ -34,10 +33,15 @@ DIW DHCP Import
 
 After:
 - allow-update ACL with DC1/2 IPs, and set at high-level
-- DHCP exclude ranges!
+  - _only DCs should be able to update on their own_
+  - DHCP will update everyone else
+- forward-only zones only import set to 1 nameserver, need to add 2nd!
 - grid-level DHCP option for domain-name-servers to ns1/ns2
 - grid-level lease time = 7200 seconds
   - for roll-back purposes
+- DHCP exclude ranges!
 - change session timeout back to 1800 seconds
 
-**Make sure ns1/2 are running DNS and DHCP services after import**
+**Make sure ns1/2 are running DNS service after import**
+
+_DHCP would be turned on **during** go-live_
