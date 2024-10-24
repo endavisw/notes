@@ -23,7 +23,7 @@ Final Lab
 - Leverages Initial Lab testing
 
 ## Data Processing Flow
-* DIW toll can parse and import to Grid
+* DIW tool can parse and import to Grid
 * Import to Grid and then do final data manip
 * Export to CSV
 * Test import the CSV to a lab Grid
@@ -52,8 +52,8 @@ named.conf import overview will show which zones have parse errors, in what
 file and where in their file
 
 If a zone has 'allow-update' and GSS-TSIG, that's how the AD export tool
-denotes that a zone is AD integrated. _This is an indicator that dynamic
-updates methodology should be discussed with the customer_
+denotes that a zone is AD integrated. _This is an indicator that dynamic_
+_updates methodology should be discussed with the customer_
 * May be easier to allow DHCP to update client records
 * Remember: GSS-TSIG allows _clients_ to create to records!
 
@@ -165,7 +165,7 @@ DIW is "temporary" - moving to web-based portal
 
 ## Keep the Project Docs Update
 - Files
-- TIming
+- Timing
 - Exceptions
 - Errors
 - Process

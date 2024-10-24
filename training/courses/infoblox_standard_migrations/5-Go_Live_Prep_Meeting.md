@@ -41,7 +41,7 @@
     - Perhaps something has always been broken?
 - Go Live tests
   - Use dig to query each ADC verify new SOA MNAME
-  - net logon stop, net logon start, net ip register
+  - net logon stop, net logon start, net ip register-dns
     - or delete some SRVs, net login stop/start to ensure recreation
 - **Tests requested by customer much have pre-go-live result recorded**
 

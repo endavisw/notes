@@ -228,9 +228,9 @@ Do Not Import:
 ### DHCP
 Subnet 10.201.194.0/24 - Change router from 10.201.193.1 to 102.201.194.1
 
-Fixed IP 10.150.207.243 - Change MAC to 00-00-00-20-72-43
+Fixed IP 10.150.207.243 - Change MAC to 00-00-00-00-00-00
 
-Import to Grid:
+Import to Grid: 
 - Only 1 lease time used
 - 1 instance of blox.corp domain-name
 
