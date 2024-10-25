@@ -1498,6 +1498,259 @@ Data Management -> DNS -> Grid DNS Properties -> Updates -> Basic
 Grid -> Grid Manager -> Grid Properties -> Security -> Basic
 - set Session Timeout to 1800 seconds
 
-Backed up to Basic_DNS-DHCP_Config.bak
+Backed up to 1-Basic_DNS-DHCP_Config.bak
 
-**TODO - DHCP Exclusion Ranges**
+## DHCP Exclusion Ranges
+Exported DHCP IPv4 Ranges to real_dhcp_ranges.csv 
+
+```
+$ for range in `fgrep excluderange netsh-utf* | cut -d\: -f2 | awk {'print $5;}' | sort -u`; do echo ${range}; fgrep ${range} netsh-utf8* | cut -d\: -f2- | fgrep excluderange; done
+10.150.202.0
+Dhcp Server \\10.61.200.202 Scope 10.150.202.0 add excluderange 10.150.202.150 10.150.202.250
+Dhcp Server \\10.61.200.203 Scope 10.150.202.0 add excluderange 10.150.202.50 10.150.202.149
+10.150.204.0
+Dhcp Server \\10.61.200.202 Scope 10.150.204.0 add excluderange 10.150.204.173 10.150.207.250
+Dhcp Server \\10.61.200.202 Scope 10.150.204.0 add excluderange 10.150.204.170 10.150.204.170
+Dhcp Server \\10.61.200.202 Scope 10.150.204.0 add excluderange 10.150.204.159 10.150.204.159
+Dhcp Server \\10.61.200.203 Scope 10.150.204.0 add excluderange 10.150.204.96 10.150.207.172
+Dhcp Server \\10.61.200.203 Scope 10.150.204.0 add excluderange 10.150.207.240 10.150.207.249
+10.150.208.0
+Dhcp Server \\10.61.200.202 Scope 10.150.208.0 add excluderange 10.150.210.0 10.150.211.254
+Dhcp Server \\10.61.200.203 Scope 10.150.208.0 add excluderange 10.150.208.16 10.150.209.255
+10.150.217.0
+Dhcp Server \\10.61.200.202 Scope 10.150.217.0 add excluderange 10.150.217.135 10.150.217.254
+Dhcp Server \\10.61.200.203 Scope 10.150.217.0 add excluderange 10.150.217.16 10.150.217.134
+10.150.224.0
+Dhcp Server \\10.61.200.202 Scope 10.150.224.0 add excluderange 10.150.232.0 10.150.239.254
+Dhcp Server \\10.61.200.203 Scope 10.150.224.0 add excluderange 10.150.224.16 10.150.231.254
+10.150.240.0
+Dhcp Server \\10.61.200.202 Scope 10.150.240.0 add excluderange 10.150.240.1 10.150.240.15
+Dhcp Server \\10.61.200.203 Scope 10.150.240.0 add excluderange 10.150.240.1 10.150.240.132
+10.192.10.0
+Dhcp Server \\10.61.200.202 Scope 10.192.10.0 add excluderange 10.192.10.162 10.192.10.254
+Dhcp Server \\10.61.200.203 Scope 10.192.10.0 add excluderange 10.192.10.219 10.192.10.219
+Dhcp Server \\10.61.200.203 Scope 10.192.10.0 add excluderange 10.192.10.71 10.192.10.161
+10.192.12.0
+Dhcp Server \\10.61.200.202 Scope 10.192.12.0 add excluderange 10.192.12.100 10.192.12.107
+Dhcp Server \\10.61.200.202 Scope 10.192.12.0 add excluderange 10.192.14.0 10.192.15.202
+Dhcp Server \\10.61.200.203 Scope 10.192.12.0 add excluderange 10.192.12.1 10.192.13.255
+10.192.50.0
+Dhcp Server \\10.61.200.203 Scope 10.192.50.0 add excluderange 10.192.50.50 10.192.50.149
+Dhcp Server \\10.61.200.203 Scope 10.192.50.0 add excluderange 10.192.50.150 10.192.50.250
+10.192.51.0
+Dhcp Server \\10.61.200.202 Scope 10.192.51.0 add excluderange 10.192.51.150 10.192.51.250
+Dhcp Server \\10.61.200.203 Scope 10.192.51.0 add excluderange 10.192.51.50 10.192.51.149
+10.192.52.0
+Dhcp Server \\10.61.200.202 Scope 10.192.52.0 add excluderange 10.192.52.150 10.192.52.250
+Dhcp Server \\10.61.200.203 Scope 10.192.52.0 add excluderange 10.192.52.50 10.192.52.149
+Dhcp Server \\10.61.200.203 Scope 10.192.52.0 add excluderange 10.192.52.240 10.192.52.250
+10.192.53.0
+Dhcp Server \\10.61.200.202 Scope 10.192.53.0 add excluderange 10.192.53.150 10.192.53.250
+Dhcp Server \\10.61.200.203 Scope 10.192.53.0 add excluderange 10.192.53.50 10.192.53.149
+10.192.54.0
+Dhcp Server \\10.61.200.202 Scope 10.192.54.0 add excluderange 10.192.54.150 10.192.54.250
+Dhcp Server \\10.61.200.203 Scope 10.192.54.0 add excluderange 10.192.54.50 10.192.54.149
+10.192.60.0
+Dhcp Server \\10.61.200.202 Scope 10.192.60.0 add excluderange 10.192.60.150 10.192.60.250
+Dhcp Server \\10.61.200.203 Scope 10.192.60.0 add excluderange 10.192.60.50 10.192.60.149
+10.194.10.0
+Dhcp Server \\10.61.200.202 Scope 10.194.10.0 add excluderange 10.194.10.175 10.194.10.254
+Dhcp Server \\10.61.200.202 Scope 10.194.10.0 add excluderange 10.194.10.100 10.194.10.160
+Dhcp Server \\10.61.200.202 Scope 10.194.10.0 add excluderange 10.194.10.161 10.194.10.161
+Dhcp Server \\10.61.200.203 Scope 10.194.10.0 add excluderange 10.194.10.100 10.194.10.174
+10.194.50.0
+Dhcp Server \\10.61.200.202 Scope 10.194.50.0 add excluderange 10.194.50.150 10.194.50.250
+Dhcp Server \\10.61.200.203 Scope 10.194.50.0 add excluderange 10.194.50.50 10.194.50.149
+10.194.51.0
+Dhcp Server \\10.61.200.202 Scope 10.194.51.0 add excluderange 10.194.51.150 10.194.51.250
+Dhcp Server \\10.61.200.203 Scope 10.194.51.0 add excluderange 10.194.51.50 10.194.51.149
+10.194.52.0
+Dhcp Server \\10.61.200.202 Scope 10.194.52.0 add excluderange 10.194.52.150 10.194.52.250
+Dhcp Server \\10.61.200.203 Scope 10.194.52.0 add excluderange 10.194.52.50 10.194.52.149
+10.194.53.0
+Dhcp Server \\10.61.200.202 Scope 10.194.53.0 add excluderange 10.194.53.175 10.194.53.250
+Dhcp Server \\10.61.200.203 Scope 10.194.53.0 add excluderange 10.194.53.100 10.194.53.174
+10.194.54.0
+Dhcp Server \\10.61.200.202 Scope 10.194.54.0 add excluderange 10.194.54.150 10.194.54.250
+Dhcp Server \\10.61.200.203 Scope 10.194.54.0 add excluderange 10.194.54.50 10.194.54.149
+10.194.60.0
+Dhcp Server \\10.61.200.202 Scope 10.194.60.0 add excluderange 10.194.60.150 10.194.60.250
+Dhcp Server \\10.61.200.203 Scope 10.194.60.0 add excluderange 10.194.60.50 10.194.60.149
+10.195.10.0
+Dhcp Server \\10.61.200.202 Scope 10.195.10.0 add excluderange 10.195.10.100 10.195.10.119
+Dhcp Server \\10.61.200.202 Scope 10.195.10.0 add excluderange 10.195.10.50 10.195.10.50
+Dhcp Server \\10.61.200.202 Scope 10.195.10.0 add excluderange 10.195.10.77 10.195.10.99
+Dhcp Server \\10.61.200.202 Scope 10.195.10.0 add excluderange 10.195.10.120 10.195.10.149
+10.195.50.0
+Dhcp Server \\10.61.200.202 Scope 10.195.50.0 add excluderange 10.195.50.150 10.195.50.250
+Dhcp Server \\10.61.200.203 Scope 10.195.50.0 add excluderange 10.195.50.50 10.195.50.149
+10.195.51.0
+Dhcp Server \\10.61.200.202 Scope 10.195.51.0 add excluderange 10.195.51.150 10.195.51.250
+Dhcp Server \\10.61.200.203 Scope 10.195.51.0 add excluderange 10.195.51.50 10.195.51.149
+10.195.52.0
+Dhcp Server \\10.61.200.202 Scope 10.195.52.0 add excluderange 10.195.52.150 10.195.52.250
+Dhcp Server \\10.61.200.203 Scope 10.195.52.0 add excluderange 10.195.52.50 10.195.52.149
+10.195.53.0
+Dhcp Server \\10.61.200.202 Scope 10.195.53.0 add excluderange 10.195.53.175 10.195.53.250
+Dhcp Server \\10.61.200.203 Scope 10.195.53.0 add excluderange 10.195.53.100 10.195.53.174
+10.195.54.0
+Dhcp Server \\10.61.200.202 Scope 10.195.54.0 add excluderange 10.195.54.150 10.195.54.250
+Dhcp Server \\10.61.200.203 Scope 10.195.54.0 add excluderange 10.195.54.50 10.195.54.149
+10.195.55.0
+Dhcp Server \\10.61.200.202 Scope 10.195.55.0 add excluderange 10.195.55.200 10.195.55.254
+10.195.60.0
+Dhcp Server \\10.61.200.202 Scope 10.195.60.0 add excluderange 10.195.60.150 10.195.60.250
+Dhcp Server \\10.61.200.203 Scope 10.195.60.0 add excluderange 10.195.60.50 10.195.60.149
+10.201.175.0
+Dhcp Server \\10.61.200.202 Scope 10.201.175.0 add excluderange 10.201.175.150 10.201.175.250
+Dhcp Server \\10.61.200.203 Scope 10.201.175.0 add excluderange 10.201.175.50 10.201.175.149
+10.201.200.0
+Dhcp Server \\10.61.200.202 Scope 10.201.200.0 add excluderange 10.201.200.151 10.201.200.200
+Dhcp Server \\10.61.200.203 Scope 10.201.200.0 add excluderange 10.201.200.100 10.201.200.150
+10.202.224.0
+Dhcp Server \\10.61.200.202 Scope 10.202.224.0 add excluderange 10.202.224.151 10.202.224.200
+Dhcp Server \\10.61.200.203 Scope 10.202.224.0 add excluderange 10.202.224.100 10.202.224.150
+10.250.250.0
+Dhcp Server \\10.61.200.202 Scope 10.250.250.0 add excluderange 10.250.250.151 10.250.250.200
+Dhcp Server \\10.61.200.203 Scope 10.250.250.0 add excluderange 10.250.250.100 10.250.250.150
+10.252.0.0
+Dhcp Server \\10.61.200.202 Scope 10.252.0.0 add excluderange 10.252.18.1 10.252.18.250
+10.254.0.0
+Dhcp Server \\10.61.200.202 Scope 10.254.0.0 add excluderange 10.254.7.0 10.254.15.254
+Dhcp Server \\10.61.200.203 Scope 10.254.0.0 add excluderange 10.254.0.16 10.254.6.255
+10.40.0.0
+Dhcp Server \\10.61.200.202 Scope 10.40.0.0 add excluderange 10.40.103.0 10.40.104.254
+Dhcp Server \\10.61.200.203 Scope 10.40.0.0 add excluderange 10.40.101.1 10.40.102.255
+10.41.0.0
+Dhcp Server \\10.61.200.202 Scope 10.41.0.0 add excluderange 10.41.103.0 10.41.104.254
+Dhcp Server \\10.61.200.203 Scope 10.41.0.0 add excluderange 10.41.101.1 10.41.102.255
+10.42.0.0
+Dhcp Server \\10.61.200.202 Scope 10.42.0.0 add excluderange 10.42.103.0 10.42.104.254
+Dhcp Server \\10.61.200.203 Scope 10.42.0.0 add excluderange 10.42.101.1 10.42.102.255
+10.43.0.0
+Dhcp Server \\10.61.200.202 Scope 10.43.0.0 add excluderange 10.43.103.1 10.43.104.254
+Dhcp Server \\10.61.200.203 Scope 10.43.0.0 add excluderange 10.43.101.1 10.43.102.255
+10.50.0.0
+Dhcp Server \\10.61.200.202 Scope 10.50.0.0 add excluderange 10.50.52.0 10.50.53.254
+Dhcp Server \\10.61.200.203 Scope 10.50.0.0 add excluderange 10.50.50.1 10.50.51.255
+10.51.0.0
+Dhcp Server \\10.61.200.202 Scope 10.51.0.0 add excluderange 10.51.52.0 10.51.53.254
+Dhcp Server \\10.61.200.203 Scope 10.51.0.0 add excluderange 10.51.50.1 10.51.51.255
+10.52.0.0
+Dhcp Server \\10.61.200.203 Scope 10.52.0.0 add excluderange 10.52.50.1 10.52.51.255
+10.53.0.0
+Dhcp Server \\10.61.200.202 Scope 10.53.0.0 add excluderange 10.53.52.0 10.53.53.254
+Dhcp Server \\10.61.200.203 Scope 10.53.0.0 add excluderange 10.53.50.1 10.53.51.255
+10.61.202.0
+Dhcp Server \\10.61.200.202 Scope 10.61.202.0 add excluderange 10.61.202.1 10.61.202.1
+Dhcp Server \\10.61.200.202 Scope 10.61.202.0 add excluderange 10.61.202.128 10.61.202.254
+Dhcp Server \\10.61.200.203 Scope 10.61.202.0 add excluderange 10.61.202.1 10.61.202.127
+10.61.203.0
+Dhcp Server \\10.61.200.202 Scope 10.61.203.0 add excluderange 10.61.203.1 10.61.203.1
+Dhcp Server \\10.61.200.202 Scope 10.61.203.0 add excluderange 10.61.203.128 10.61.203.254
+Dhcp Server \\10.61.200.203 Scope 10.61.203.0 add excluderange 10.61.203.128 10.61.203.254
+10.61.204.0
+Dhcp Server \\10.61.200.202 Scope 10.61.204.0 add excluderange 10.61.204.1 10.61.204.1
+Dhcp Server \\10.61.200.202 Scope 10.61.204.0 add excluderange 10.61.204.128 10.61.204.254
+Dhcp Server \\10.61.200.203 Scope 10.61.204.0 add excluderange 10.61.204.1 10.61.204.127
+10.61.205.0
+Dhcp Server \\10.61.200.202 Scope 10.61.205.0 add excluderange 10.61.205.1 10.61.205.1
+Dhcp Server \\10.61.200.202 Scope 10.61.205.0 add excluderange 10.61.205.128 10.61.205.254
+Dhcp Server \\10.61.200.203 Scope 10.61.205.0 add excluderange 10.61.205.1 10.61.205.127
+10.64.0.0
+Dhcp Server \\10.61.200.202 Scope 10.64.0.0 add excluderange 10.64.52.0 10.64.53.254
+Dhcp Server \\10.61.200.203 Scope 10.64.0.0 add excluderange 10.64.50.1 10.64.51.255
+```
+
+Ranges with exclusions on only 1 server:
+- 10.192.50.0
+- 10.195.10.0
+- 10.195.55.0 - This is unique to DC1, needs to be kept
+- 10.252.0.0
+- 10.52.0.0
+
+- Corrected input to script
+- Copied real_dhcp_ranges.csv to modified_dhcp_ranges.csv 
+- Modified exclusion_ranges column in modified_dhcp_ranges.csv 
+- Imported modified_dhcp_ranges.csv with override
+- Exported DHCP IPv4 Ranges again to updated_dhcp_ranges.csv
+- Exclusion ranges from Grid match modified_dhcp_ranges.csv
+
+Backed up to 2-DNS_DHCP_Ex_Ranges.bak
+
+## Revised DDNS
+
+Data Management -> DNS -> Grid DNS Properties -> Updates -> Basic
+- Allow updates from: Set of ACEs
+  - 10.100.0.105 (IPv4 Address)
+  - 10.200.0.105 (IPv4 Address)
+  - 10.61.200.202 (IPv4 Address)
+  - 10.61.200.203 (IPv4 Address)
+  
+Administration -> Named ACLs -> Add Named ACL
+- Deleted: AD_Controllers
+
+Backed up to 3-Revised_DDNS_Config.bak
+
+Removed IMPORT_ACTION column, set view and ns_group data correctly on
+- 0003-rfc-6302-zones_fixed.csv
+- 0004-rfc-6598-zones_fixed.csv
+
+Imported squelch zone CSVs
+
+Backed up to 4-Squelch_Imported.bak
+
+## Last Customer Questions
+DDNS updates should go into whatever zone a range hands out for domain-name
+
+### 112.171.216.in-addr.arpa
+
+Zone should be imported, will monitor for queries later
+
+DC1 & DC2 match
+```
+$ diff dc*/112.171.216.in-addr.arpa.db | wc -l
+0
+```
+
+Non-trivial number of records
+```
+$ cat dc2*/112.171.216.in-addr.arpa.db | wc -l
+61
+```
+
+Created 216-171-112-named.conf
+```
+options {
+    directory ".";
+};
+
+zone "112.171.216.in-addr.arpa" in {
+    type master;
+    file "112.171.216.in-addr.arpa.db";
+};
+```
+
+Imported 216-171-112-named.conf
+
+Backed up to 5-Imported_Missing_Reverse.bak
+
+## DHCP Lease Time
+
+Course material states
+- All DHCP clients must be holding a lease time of 4 hours at go-live
+- Customer must reduce lease times to 2-4 hours such that all clients are active on a 2-4 hour lease
+- 
+
+Data Management -> DHCP -> Grid DHCP Properties -> General -> Basic
+- set Lease Time to 4 Hours
+
+Backed up to 6-Revised_DHCP_Lease_Time.bak
+
+# Submission
+
+Verified DHCP services would start correctly, then turned them off.
+
+Verified default admin credentials work.
+
+Backed up to WesDavis-Exam-1-Reston.bak
