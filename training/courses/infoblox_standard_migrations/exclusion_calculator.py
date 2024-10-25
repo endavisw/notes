@@ -109,6 +109,11 @@ Scope 10.64.0.0 add excluderange 10.64.52.0 10.64.53.254
 
 from ipaddress import ip_address
 
+print('Paste in the output from this command then hit Enter twice:')
+print(r'fgrep excluderange netsh-utf* | cut -d\: -f2 | cut -d\  -f4- | sort -u')  # noqa
+print('')
+
+# Get user input
 lines = []
 user_input = 'x'
 while user_input != '':
@@ -117,11 +122,14 @@ while user_input != '':
 
 exclusions = {}
 shared = {}
+ranges = {}
 
+# Process user input
 for line in lines:
     if not line:
         continue
-    
+
+    # Get rid of columns we don't care about
     line = line.replace('Scope ', '').replace('add excluderange ', '')
 
     scope_str, ex_start_str, ex_end_str = line.split(' ')
@@ -130,14 +138,26 @@ for line in lines:
     ex_start = ip_address(ex_start_str)
     ex_end = ip_address(ex_end_str)
     
+    # Each scope is a key "exclusions", value is a list of ranges
+    # This populates each range as a list of IPAddress objects
+    # These can be used numerically for sorting & comparing
     for ip_int in range(int(ex_start), int(ex_end) + 1):
         scope_ex.append(ip_address(ip_int))
 
     if scope not in exclusions:
         exclusions[scope] = []
         shared[scope] = set()
+        ranges[scope] = []
+    # Add this range to the list of ranges for the scope
     exclusions[scope].append(scope_ex)
 
+# Scopes with only 1 range always need to be processed
+for scope, range_list in exclusions.items():
+    if len(range_list) == 1:
+        for ip_addr in range_list[0]:
+            shared[scope].add(ip_addr)
+
+# Find shared exclusions for each scope's exclusion ranges
 for scope, range_list in exclusions.items():
     while range_list:
         current = range_list.pop()
@@ -146,6 +166,54 @@ for scope, range_list in exclusions.items():
                 if ip_addr in remaining:
                     shared[scope].add(ip_addr)
 
-print('Number of Shared Excluded IPs')
-for key, val in shared.items():
-   print(f'{key}\t{len(val)}')
+# Turn lists of IPs into dash-separated ranges
+for scope, shared_set in shared.items():
+    shared_list = list(sorted(shared_set))
+    if not shared_list:
+        continue
+    range_list = []
+    range_start = shared_list[0]
+    range_end = shared_list[0]
+    last_ip = None
+    final_ip = shared_list[-1]
+    for ip_addr in shared_list:
+
+        if last_ip:
+            if int(ip_addr) == int(last_ip) + 1:
+                # Extend the range
+                range_end = ip_addr
+                last_ip = ip_addr
+                if ip_addr == final_ip:
+                    # Last IP for scope, add range to list
+                    ranges[scope].append((range_start, range_end))
+            else:
+                # IP does not follow previous IP
+                # Add previous range to list
+                ranges[scope].append((range_start, range_end))
+                # Begin new range
+                range_start = ip_addr
+                range_end = ip_addr
+                last_ip = ip_addr
+                if ip_addr == final_ip:
+                    # Last IP for scope, add range to list
+                    ranges[scope].append((range_start, range_end))
+        else:
+            # First iteration
+            if ip_addr == final_ip:
+                # Last IP for scope, add range to list
+                ranges[scope].append((range_start, range_end))
+            else:
+                last_ip = ip_addr      
+
+# print('Number of Shared Excluded IPs')
+# for key, val in shared.items():
+#    print(f'{key}\t{len(val)}')
+# print('')
+
+print('Shared Excluded Ranges')
+for scope in sorted(ranges.keys()):
+    range_list = ranges[scope]
+    scope_ranges = []
+    for ip_range in range_list:
+        scope_ranges.append(f'{ip_range[0]}-{ip_range[1]}')
+    print(f'"{scope}","{",".join(scope_ranges)}"')
