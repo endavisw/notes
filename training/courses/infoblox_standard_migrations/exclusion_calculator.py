@@ -20,8 +20,6 @@ Scope 10.192.10.0 add excluderange 10.192.10.71 10.192.10.161
 Scope 10.192.12.0 add excluderange 10.192.12.100 10.192.12.107
 Scope 10.192.12.0 add excluderange 10.192.12.1 10.192.13.255
 Scope 10.192.12.0 add excluderange 10.192.14.0 10.192.15.202
-Scope 10.192.50.0 add excluderange 10.192.50.150 10.192.50.250
-Scope 10.192.50.0 add excluderange 10.192.50.50 10.192.50.149
 Scope 10.192.51.0 add excluderange 10.192.51.150 10.192.51.250
 Scope 10.192.51.0 add excluderange 10.192.51.50 10.192.51.149
 Scope 10.192.52.0 add excluderange 10.192.52.150 10.192.52.250
@@ -49,10 +47,6 @@ Scope 10.194.54.0 add excluderange 10.194.54.150 10.194.54.250
 Scope 10.194.54.0 add excluderange 10.194.54.50 10.194.54.149
 Scope 10.194.60.0 add excluderange 10.194.60.150 10.194.60.250
 Scope 10.194.60.0 add excluderange 10.194.60.50 10.194.60.149
-Scope 10.195.10.0 add excluderange 10.195.10.100 10.195.10.119
-Scope 10.195.10.0 add excluderange 10.195.10.120 10.195.10.149
-Scope 10.195.10.0 add excluderange 10.195.10.50 10.195.10.50
-Scope 10.195.10.0 add excluderange 10.195.10.77 10.195.10.99
 Scope 10.195.50.0 add excluderange 10.195.50.150 10.195.50.250
 Scope 10.195.50.0 add excluderange 10.195.50.50 10.195.50.149
 Scope 10.195.51.0 add excluderange 10.195.51.150 10.195.51.250
@@ -74,7 +68,6 @@ Scope 10.202.224.0 add excluderange 10.202.224.100 10.202.224.150
 Scope 10.202.224.0 add excluderange 10.202.224.151 10.202.224.200
 Scope 10.250.250.0 add excluderange 10.250.250.100 10.250.250.150
 Scope 10.250.250.0 add excluderange 10.250.250.151 10.250.250.200
-Scope 10.252.0.0 add excluderange 10.252.18.1 10.252.18.250
 Scope 10.254.0.0 add excluderange 10.254.0.16 10.254.6.255
 Scope 10.254.0.0 add excluderange 10.254.7.0 10.254.15.254
 Scope 10.40.0.0 add excluderange 10.40.101.1 10.40.102.255
@@ -89,13 +82,13 @@ Scope 10.50.0.0 add excluderange 10.50.50.1 10.50.51.255
 Scope 10.50.0.0 add excluderange 10.50.52.0 10.50.53.254
 Scope 10.51.0.0 add excluderange 10.51.50.1 10.51.51.255
 Scope 10.51.0.0 add excluderange 10.51.52.0 10.51.53.254
-Scope 10.52.0.0 add excluderange 10.52.50.1 10.52.51.255
 Scope 10.53.0.0 add excluderange 10.53.50.1 10.53.51.255
 Scope 10.53.0.0 add excluderange 10.53.52.0 10.53.53.254
 Scope 10.61.202.0 add excluderange 10.61.202.1 10.61.202.1
 Scope 10.61.202.0 add excluderange 10.61.202.1 10.61.202.127
 Scope 10.61.202.0 add excluderange 10.61.202.128 10.61.202.254
 Scope 10.61.203.0 add excluderange 10.61.203.1 10.61.203.1
+Scope 10.61.203.0 add excluderange 10.61.203.128 10.61.203.254
 Scope 10.61.203.0 add excluderange 10.61.203.128 10.61.203.254
 Scope 10.61.204.0 add excluderange 10.61.204.1 10.61.204.1
 Scope 10.61.204.0 add excluderange 10.61.204.1 10.61.204.127
@@ -110,7 +103,7 @@ Scope 10.64.0.0 add excluderange 10.64.52.0 10.64.53.254
 from ipaddress import ip_address
 
 print('Paste in the output from this command then hit Enter twice:')
-print(r'fgrep excluderange netsh-utf* | cut -d\: -f2 | cut -d\  -f4- | sort -u')  # noqa
+print(r'fgrep excluderange netsh-utf* | cut -d\: -f2 | cut -d\  -f4- | sort')
 print('')
 
 # Get user input
