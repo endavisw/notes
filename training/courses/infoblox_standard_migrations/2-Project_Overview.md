@@ -71,7 +71,7 @@ Infoblox has ongoing effort to get all deployment guides into docs.infoblox.com
   - Have same records as exported from AD?
 - Quickly repeatable?
   - Will basically have 24 hours in go-live
-- **Document* the process
+- **Document** the process
   - Document in class
   - Document for customer
   - If exporting to CSV, know:
