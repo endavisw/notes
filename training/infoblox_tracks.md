@@ -8,8 +8,6 @@
 * Course: NIOS Operations
 * Course: NIOS Administration
 * Course: NIOS Troubleshooting
-### Infoblox Qualified NetMRI Administrator (IMA)
-* Course: NetMRI Configuration & Administration
 ### Infoblox Qualified DDI Associate (DDIA)
 * Course: DDI Associate
 ### Infoblox Qualified DDI Professional (DDIP)
@@ -23,41 +21,38 @@
 
 # Topics
 ## Product Learning
-### Networking
-* Beginner
-    * NIOS DDI Operations
-    * NIOS DDI Reporting
-* Intermediate
-    * NIOS DDI Administration
-    * Network Insight
-    * NIOS DNS Traffic Control
-    * NIOS DDI Troubleshooting Fundamentals
-    * NIOS DDI Dynamic DNS (DDNS)
-    * BloxOne DDI Administration
-* Advanced
-    * NIOS DDI Troubleshooting
-    * NIOS WAPI Scripting
-    * NIOS DDI DNSSEC
+### Universal DDI
+* What is Universal DDI?
+* Navigating the Infoblox Portal
+* Managing Universal DNS
+* Managing Universal DHCP
+* Managing Universal IPAM
+* Deploying NIOS-X
+* Asset Insights
+### NIOS DDI
+* NIOS DDI Operations
+* NIOS DDI Administration
+* NIOS DDI Troubleshooting
+* Network Insight
+* NIOS DNS Traffic Control
+* NIOS WAPI Scripting
+* NIOS DDI Troubleshooting Fundamentals
+* NIOS DDI Dynamic DNS (DDNS)
+* NIOS DDI DNSSEC
+* NIOS Advanced DNS Protection (ADP)
+* NIOS DNS Firewall
+* NIOS Threat Insight
+### Threat Defense
+* What is Threat Defense?
+* Managing Threat Defense
+* SOC Insights
+* Infoblox TIDE
+* Infoblox Dossier
+* NIOS DNS Firewall
+### NetMRI
+* NetMRI Configuration and Administration
+* NetMRI CCS Scripting
 
-### Security
-* Intermediate
-    * NIOS DNS Firewall
-    * NIOS Threat Insight
-    * NIOS Advanced DNS Protection (ADP)
-    * TIDE and Dossier
-    * BloxOne Threat Defense Administration
-    * SOC Insights
-* Advanced
-    * NIOS DDI DNSSEC
-
-### Automation
-* Intermediate
-    * NetMRI Configuration and Administration
-    * Network Insight
-    * NIOS DNS Traffic Control
-* Advanced
-    * NetMRI CCS Scripting
-    * NIOS WAPI Scripting
 
 ## Industry Learning
 ### DNS, DHCP, and IPAM (DDI)
@@ -69,23 +64,29 @@
 
 ## Partner Learning
 ### Professional Services Training
-* BloxOne DDI Quickstart
+* Services Certification - BloxOne DDI Quickstart
     * Getting Started
     * Services Introduction
     * Initial Setup
     * Services Configuration and Deployment
     * Project Completion
     * Exam
-* BloxOne Threat Defense Quickstart
+* Services Certification - BloxOne Threat Defense Quickstart
     * Getting Started
     * Services Introduction
     * Initial Setup
     * Services Configuration and Deployment
     * Project Completion
     * Exam
+* Services Certification - Standard Migrations
+    * Live Class
+    * Written Exam
+* Services - Cloud Data Connector
+    * Getting Started
+    * Knowledge Check
 ### Technical Pre-Sales Training
-* Tech Cert - Selling Infoblox
+* Tech Certification - Selling Infoblox
 ### Sales Training
-* Sales Cert - Selling Infoblox
+* Sales Certifcation - Selling Infoblox
 ### Marketing Training
 * Partner Marketing Onboarding
