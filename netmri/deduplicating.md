@@ -211,6 +211,7 @@ That would yield "LINUX" for name, so add that to the list of vendor-default
 | IPAD                                |
 | LINUX                               |
 | LOCALHOST                           |
+| MALBAN7                             |
 | MALBAN10                            |
 | MNODE180                            |
 | NETSCALER                           |
