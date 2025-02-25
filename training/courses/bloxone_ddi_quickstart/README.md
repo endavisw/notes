@@ -32,5 +32,5 @@
 1. Practice Lab Instructions
     * B1DDI QS Practical Instructions.pdf
 
-## Services Certificstion - BloxOne DDI Quickstart Exam
-1. Access Services Certificstion - BloxOne DDI Quickstart Exam
+## Services Certification - BloxOne DDI Quickstart Exam
+1. Access Services Certification - BloxOne DDI Quickstart Exam
