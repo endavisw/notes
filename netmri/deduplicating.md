@@ -113,7 +113,7 @@ Useful deduplication attributes:
 * StatusDetail - License status
 * LastSeen
 * ReachableStatus
-* SNMPCollectionEnabled, SNMPCollectionStatus, SNMPCollectionTimestamp
+* SNMPCollectionEnabled, SNMPCredentialStatus, SNMPCredentialTimestamp
 * SDNCollectionEnabled, SDNCollectionStatus, SDNCollectionTimestamp
 
 Use of attributes in tie-breaking for deduplication will be discussed futher
@@ -386,7 +386,7 @@ There are a number of attributes to compare between the two to determine the
 
 * StatusDetail
   * DeviceAssurance
-    * SNMPCollection or SDNCollection
+    * SNMPCredential or SDNCollection
       * DeviceTimestamp/LastSeen
 
 **StatusDetail** has 4 (really 3) possible values and is the easiest comparison.
@@ -438,9 +438,14 @@ at 60 or 72.
 SNMPCollectionEnabled and SDNCollectionEnabled should be checked for a non-empty
 value to see which mechanism is being used to poll the Device.
 
-Then, (SNMP|SDN)CollectionStatus can be checked to see if the last collection
-was successful, with a value of "OK". If so, compare (SNMP|SDN)CollectionTimestamp;
-most recent wins.
+Then, SNMPCredentialStatus/SDNCollectionStatus can be checked to see if the
+last collection was successful, with a value of "OK". If so, compare
+SNMPCredentialTimestamp/SDNCollectionTimestamp; most recent wins.
+
+Wait, why not SNMPCollectionStatus? In a case where, for example, Inventory
+collection succeeds but Environmental collection fails, SNMPCollectionStatus
+will be Error. SNMPCredentialStatus is a better indicator of any working SNMP
+communication.
 
 If two systems are using a _different_ mechanism for seemingly the same Device,
 that could be the result of misconfiguration but not necessarily the end of the
