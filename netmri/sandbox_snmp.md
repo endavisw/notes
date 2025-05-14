@@ -1,9 +1,9 @@
 # NetMRI Sandbox SNMP Configuration
 
 The default `/etc/snmp/snmpd.conf` in the NetMRI 7.6.0 Sandbox is set to:
-* Listen on all interfaces
+* Listen on all interfaces with both IPv4 and IPv6
 * Enable the same default v2c community as NetMRI, `per1sc0pe`
-* Sets up a `netmri` user for v3, but does not specify passphrase or security
+* Sets up a `netmri` user for v3, but doesn't appeat to specify passphrase or security
 
 ```perl
 sysObjectID 1.3.6.1.4.1.24198.1.1.20
@@ -19,7 +19,7 @@ agentaddress  0.0.0.0,[::]
 
 #sec        name                source          community
 com2sec     netmri              default         per1sc0pe
-com2sec6        netmri          default         per1sc0pe
+com2sec6    netmri              default         per1sc0pe
 
 #groupName      securityModel                   securityName
 group           netmri                  v1              netmri
@@ -40,7 +40,7 @@ rwuser netmri
 ## sysObjectID
 
 The default sysObjectID, `1.3.6.1.4.1.24198.1.1.20`, while under
-`NETCORDIA-MIB::netmriModels` doesn't actually match an object in `NETCORDIA-MI`B.
+`NETCORDIA-MIB::netmriModels` doesn't actually match an object in `NETCORDIA-MIB`.
 At least not in the 201910240000Z version.
 
 The model OIDs under `netmriModels` do, however, include one for "RemoteSandbox". 
@@ -62,7 +62,7 @@ netmriModels OBJECT-IDENTITY
         SmallEnterprise OBJECT IDENTIFIER ::= { netmriModels 7 }
         LargeEnterprise OBJECT IDENTIFIER ::= { netmriModels 8 }
         RemoteSandbox   OBJECT IDENTIFIER ::= { netmriModels 9 }
-        Automation4000 OBJECT IDENTIFIER ::= { netmriModels 10 }
+        Automation4000  OBJECT IDENTIFIER ::= { netmriModels 10 }
         NT1400          OBJECT IDENTIFIER ::= { netmriModels 11 }
         NT2200          OBJECT IDENTIFIER ::= { netmriModels 12 }
         NT4000          OBJECT IDENTIFIER ::= { netmriModels 13 }
