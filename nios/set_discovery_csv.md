@@ -485,7 +485,7 @@ Filtering by the username that made the WAPI call, the most recent
 "SetDiscoveryCSV" call for the Network View used will give the time the GM
 considers the SetDiscoveryCSV event to have started.
 
-`datetime.fromisoformat()` in Python 3.13 doesn't support the suffix "Z" to
+`datetime.fromisoformat()` in Python 3.9 doesn't support the suffix "Z" to
 denote UTC/GMT/ZULU, but replacing the "Z" with "+00:00" is a sufficient
 conversion.
 
