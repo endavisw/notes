@@ -705,7 +705,9 @@ matching import job parameters appear.
 
 RegEx with named match groups for parsing:
 
-`^\[(?P<timestamp>\d{4}\/\d{2}\/\d{2} \d{2}:\d{2}:\d{2})\.\d{3}\] \(\d+ \S+\) \w+\.c:\d+ (?P<function>\S+): Discovery CSV import \[(?P<filename>\S+)\]: (?P<message>.+)$`
+```regexp
+^\[(?P<timestamp>\d{4}\/\d{2}\/\d{2} \d{2}:\d{2}:\d{2})\.\d{3}\] \(\d+ \S+\) \w+\.c:\d+ (?P<function>\S+): Discovery CSV import \[(?P<filename>\S+)\]: (?P<message>.+)$
+```
 
 Example Grid's local time is EDT (-04:00).
 
