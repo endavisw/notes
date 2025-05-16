@@ -736,7 +736,7 @@ Skipped rows - Invalid data format
 
 Skipped rows - No network was found
 - `__csv_row_callback()` messages _do_ count the header row and data rows start
-  at 1 _do_ _have useful information, unlike their invalid-format counterparts
+  at 1 and _do_ have useful information, unlike their invalid-format counterparts
 ```
 [2025/05/14 12:17:59.932] (2158418 /infoblox/dns/bin/discovery_gm_sorter) discovery_gm_sorter.c:1285 __csv_row_callback(): Discovery CSV import [import_file]: No network was found for IP address 172.31.98.1, line 2 in CSV file. Row was not imported.
 ```
